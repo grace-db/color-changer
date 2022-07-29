@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+const colors = [
+  {key: 1, color: "#04773b"},
+  {key: 2, color: "#389767"},
+  {key: 3, color: "#955975"},
+  {key: 4, color: "#b94b41"},
+  {key: 5, color: "#95974d"},
+  {key: 6, color: "#ee813d"},
+  {key: 7, color: "#d192b2"},
+  {key: 8, color: "#dac09b"},
+  {key: 9, color: "#64472d"},
+  {key: 10, color: "#2d301d"}
+];
 
 function App() {
+  const [bgColor, setBgColor] = useState("#FFFFFF");
+
+  function ColorSwitch() {
+    return colors.map((color) => {
+      return (
+        <button id={`color${color.key}`}
+                className="color-divs"
+                style={{backgroundColor: `${color.color}`}}
+                onClick={() => setBgColor(color.color)}></button>
+      );
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="container" style={{backgroundColor: `${bgColor}`}}>
+      <ColorSwitch />
     </div>
   );
 }

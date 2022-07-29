@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+#container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .color-divs {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #container {
+        flex-direction: column;
+    }
+}
